@@ -1,11 +1,11 @@
 import React from "react";
 import {
   RPProvider,
-  RPDefaultLayout,
+  RPLayout,
   RPPages,
   RPProviderProps,
   RPLayoutProps,
-} from "@pdf-viewer/react";
+} from "@react-pdf-kit/viewer";
 
 interface Props {
   showToolbar?: boolean;
@@ -22,9 +22,9 @@ export const AppPDFViewer = (props: Props) => {
       {...providerProps}
     >
       {showToolbar ? (
-        <RPDefaultLayout {...defaultLayoutProps}>
+        <RPLayout toolbar {...defaultLayoutProps}>
           <RPPages />
-        </RPDefaultLayout>
+        </RPLayout>
       ) : (
         <div style={{ width: "100%", height: "550px" }}>
           <RPPages />

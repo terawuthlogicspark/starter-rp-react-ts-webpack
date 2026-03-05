@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin')
 const path = require("path");
 const port = process.env.PORT || 5173;
 
@@ -16,6 +17,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: 'node_modules/pdfjs-dist/legacy/build/pdf.worker.min.mjs',
+          to: 'pdf.worker.min.mjs'
+        }
+      ]
+    })
   ],
   resolve: {
     extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],

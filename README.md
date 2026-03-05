@@ -1,8 +1,8 @@
-# React PDF Starter Toolkit in React.js, TypeScript and Webpack
+# React PDF Kit Starter Toolkit in React.js, TypeScript and Webpack
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github.com/react-pdf-dev/starter-rp-react-ts-webpack)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github.com/react-pdf-kit/starter-rp-react-ts-webpack)
 
-Welcome to the React PDF Starter Toolkit! This repository provides a comprehensive guide on integrating React PDF with React, TypeScript and Webpack. It showcases how React PDF can be integrated and rendered as part of a React.js project.
+Welcome to the React PDF Kit Starter Toolkit! This repository provides a comprehensive guide on integrating React PDF with React, TypeScript and Webpack. It showcases how React PDF can be integrated and rendered as part of a React.js project.
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ Welcome to the React PDF Starter Toolkit! This repository provides a comprehensi
 1. **Clone the Repository**: If you haven't already, clone the repository and navigate into the project directory.
 
    ```bash
-   git clone https://github.com/react-pdf-dev/starter-rp-react-ts-webpack.git
+   git clone https://github.com/react-pdf-kit/starter-rp-react-ts-webpack.git
    cd starter-rp-react-ts-webpack
    ```
 
@@ -36,7 +36,7 @@ Welcome to the React PDF Starter Toolkit! This repository provides a comprehensi
 
 ### Running the Example Project
 
-This repository includes an example project to demonstrate React PDF in action.
+This repository includes an example project to demonstrate React PDF Kit in action.
 
 1. **Start the Development Server**: Use the following command to start the development server
 
@@ -59,22 +59,13 @@ Once the example project is running, you can explore the source code to see how 
 1.  **Import the component**: Import the desired React PDF component into your codes
 
 ```tsx
-import React from "react";
 import {
   RPProvider,
-  RPDefaultLayout,
+  RPLayout,
   RPPages,
-  RPProviderProps,
-  RPLayoutProps,
-} from "@pdf-viewer/react";
+} from "@react-pdf-kit/viewer";
 
-interface Props {
-  showToolbar?: boolean;
-  providerProps?: RPProviderProps;
-  defaultLayoutProps?: RPLayoutProps;
-}
-
-export const AppPDFViewer = (props: Props) => {
+export const AppPDFViewer = (props) => {
   const { showToolbar = true, providerProps, defaultLayoutProps } = props;
 
   return (
@@ -83,9 +74,9 @@ export const AppPDFViewer = (props: Props) => {
       {...providerProps}
     >
       {showToolbar ? (
-        <RPDefaultLayout {...defaultLayoutProps}>
+        <RPLayout toolbar {...defaultLayoutProps}>
           <RPPages />
-        </RPDefaultLayout>
+        </RPLayout>
       ) : (
         <div style={{ width: "100%", height: "550px" }}>
           <RPPages/>
@@ -99,16 +90,15 @@ export const AppPDFViewer = (props: Props) => {
 2. **Use the component in the template**: Add the React PDF component to your template section
 
 ```tsx
-import React from "react";
 import "./App.css";
-import { RPConfig } from "@pdf-viewer/react";
+import { RPConfig } from "@react-pdf-kit/viewer";
 import { AppPDFViewer } from "./components/AppPDFViewer";
 
 function App() {
   return (
-    <RPConfig licenseKey="">
+    <RPConfig licenseKey="" workerUrl={'/pdf.worker.min.mjs'}>
       <div className="container">
-        <h1>React PDF Starter Toolkit in React.js, Typescript and Webpack</h1>
+        <h1>React PDF Kit Starter Toolkit in React.js, TypeScript and Webpack</h1>
         <br />
         <h2>Default Toolbar</h2>
         <AppPDFViewer />
@@ -143,12 +133,12 @@ For more examples, please refer to the `src/App.tsx` file in this repository:
 
 _Remark: If you would like more examples, feel free open an issue._
 
-For more configurations, please check the [documentation](https://docs.react-pdf.dev) site.
+For more configurations, please check the [documentation](https://docs.react-pdf-kit.dev) site.
 
 ## Meta
-- Homepage: [https://www.react-pdf.dev](https://www.react-pdf.dev)
-- Docs: [https://docs.react-pdf.dev](https://docs.react-pdf.dev)
+- Homepage: [https://www.react-pdf-kit.dev](https://www.react-pdf-kit.dev)
+- Docs: [https://docs.react-pdf-kit.dev](https://docs.react-pdf-kit.dev)
 
 ---
 
-Thank you for using React PDF! We hope this toolkit helps you build amazing React.js applications. If you have any questions or need further assistance on this example, please feel free to open an issue. Happy coding!
+Thank you for using React PDF Kit! We hope this toolkit helps you build amazing React.js applications. If you have any questions or need further assistance on this example, please feel free to open an issue. Happy coding!

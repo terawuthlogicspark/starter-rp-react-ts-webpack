@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
-import { RPConfig } from "@pdf-viewer/react";
+import { RPConfig } from "@react-pdf-kit/viewer";
 import { AppPDFViewer } from "./components/AppPDFViewer";
 
 function App() {
   return (
-    <RPConfig licenseKey="">
+    <RPConfig licenseKey="" workerUrl={'/pdf.worker.min.mjs'}>
       <div className="container">
-        <h1>React PDF Starter Toolkit in React.js, Typescript and Webpack</h1>
+        <h1>React PDF Kit Starter Toolkit in React.js, TypeScript and Webpack</h1>
         <br />
         <h2>Default Toolbar</h2>
         <AppPDFViewer />
